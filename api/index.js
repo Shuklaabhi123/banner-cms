@@ -9,7 +9,12 @@ const authRoutes   = require('../src/auth/routes/auth.routes');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('/{*path}', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
