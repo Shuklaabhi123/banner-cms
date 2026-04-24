@@ -1,0 +1,27 @@
+{
+  "name": "banner-cms",
+  "version": "1.0.0",
+  "description": "CMS for managing banners and promotions",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "create-table": "node scripts/createBannersTable.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1024.0",
+    "@aws-sdk/client-s3": "^3.967.0",
+    "@aws-sdk/lib-dynamodb": "^3.1024.0",
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.0",
+    "express": "^5.2.1",
+    "joi": "^18.1.2",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.1.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
