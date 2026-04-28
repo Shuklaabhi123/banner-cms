@@ -43,8 +43,8 @@ async function createBanner(data) {
     contentJSON:  data.contentJSON,     // template-specific fields
     status:       data.status ?? 'draft',
     priority:     data.priority ?? 0,
-    startDate:    data.startDate ?? now,
-    endDate:      data.endDate ?? null,
+    startDate:    data.startDate || now,
+    endDate:      data.endDate   || '',
     createdAt:    now,
     updatedAt:    now,
     createdBy:    data.createdBy,
