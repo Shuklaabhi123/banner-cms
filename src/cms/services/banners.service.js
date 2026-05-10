@@ -100,8 +100,17 @@ async function getActiveBanners(page) {
       '(attribute_not_exists(endDate) OR endDate = :empty OR endDate >= :now)',
   }));
 
+  const nowMs = Date.now();
+
   return (Items ?? [])
     .map(strip)
+    .filter((banner) => {
+      // If endDate is set and non-empty, drop the banner once that moment has passed.
+      if (banner.endDate && banner.endDate !== '') {
+        return new Date(banner.endDate).getTime() >= nowMs;
+      }
+      return true;
+    })
     .sort((a, b) => b.priority - a.priority);
 }
 // ── UPDATE ────────────────────────────────────────────────────────────────────
